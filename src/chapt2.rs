@@ -19,16 +19,21 @@ pub fn run_chapt2(img: &RgbImage, output_root: &Path) -> Result<(), ImageError> 
         }
     }
     modified.save(output_root.join("chapt2_set_pixel.png"))?;
+    println!("[TASK] Set pixel task completed!");
 
     let resized = resize_image(img, 320, 240);
     resized.save(output_root.join("chapt2_resized.png"))?;
+    println!("[TASK] Resize task completed!");
 
     let blank = create_blank_image(320, 240, [0, 0, 255]);
     blank.save(output_root.join("chapt2_blank.png"))?;
+    println!("[TASK] Create blank task completed!");
 
     println!("Is grayscale: {}", is_grayscale(img));
     let gray = to_grayscale(img);
     gray.save(output_root.join("chapt2_gray.png"))?;
+    println!("[TASK] Change to gray task completed!");
+
     println!("Is binary: {}", is_binary(&gray));
 
     Ok(())

@@ -319,17 +319,22 @@ pub fn img_rotate_cubic(src: &RgbImage, angle_deg: f32) -> RgbImage {
 pub fn run_chapt4(img: &RgbImage, output_root: &Path) -> Result<(), ImageError> {
     let translated = pos_trans(img, 100, 100);
     translated.save(output_root.join("chapt4_translated.png"))?;
+    println!("[TASK] translate task completed!");
 
     let flipped = img_flip(img, 1);
     flipped.save(output_root.join("chapt4_flipped.png"))?;
+    println!("[TASK] flip task completed!");
 
     let transposed = img_transpose(img);
     transposed.save(output_root.join("chapt4_transposed.png"))?;
+    println!("[TASK] transpose task completed!");
 
     let resized = img_resize(img, 100, 100);
     resized.save(output_root.join("chapt4_resized.png"))?;
+    println!("[TASK] resize task completed!");
 
     let rotated = img_rotate(img, 30.0);
     rotated.save(output_root.join("chapt4_rotated.png"))?;
+    println!("[TASK] rotate task completed!");
     Ok(())
 }

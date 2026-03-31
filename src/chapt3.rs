@@ -225,20 +225,31 @@ pub fn run_chapt3(img: &RgbImage, output_root: &Path) -> Result<(), ImageError> 
     let hist = calculate_histogram(&gray);
     let hist_img = draw_histogram(&hist);
     hist_img.save(output_root.join("chapt3_histogram.png"))?;
+    println!("[TASK] histogram task completed!");
 
     let linear = gen_gray_lin_trans(img, 1.2, 20.0);
-    let log = gen_gray_log_trans(img);
-    let gamma = gen_gamma_trans(img, 2.5);
-    let threshold = gen_threshold(img, 1, 2);
-    let piecewise = gen_piecewise_lin(img, 50, 20, 200, 240);
-    let equalized = gen_equalize_hist(img);
-
     linear.save(output_root.join("chapt3_linear.png"))?;
+    println!("[TASK] linear task completed!");
+
+    let log = gen_gray_log_trans(img);
     log.save(output_root.join("chapt3_log.png"))?;
+    println!("[TASK] log task completed!");
+
+    let gamma = gen_gamma_trans(img, 2.5);
     gamma.save(output_root.join("chapt3_gamma.png"))?;
+    println!("[TASK] gamma task completed!");
+
+    let threshold = gen_threshold(img, 1, 2);
     threshold.save(output_root.join("chapt3_threshold.png"))?;
+    println!("[TASK] threshold task completed!");
+
+    let piecewise = gen_piecewise_lin(img, 50, 20, 200, 240);
     piecewise.save(output_root.join("chapt3_piecewise.png"))?;
+    println!("[TASK] piecewise task completed!");
+
+    let equalized = gen_equalize_hist(img);
     equalized.save(output_root.join("chapt3_equalized.png"))?;
+    println!("[TASK] equalize task completed!");
 
     Ok(())
 }
