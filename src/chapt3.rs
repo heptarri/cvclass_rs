@@ -229,7 +229,7 @@ pub fn run_chapt3(img: &RgbImage, output_root: &Path) -> Result<(), ImageError> 
     let linear = gen_gray_lin_trans(img, 1.2, 20.0);
     let log = gen_gray_log_trans(img);
     let gamma = gen_gamma_trans(img, 2.5);
-    let threshold = gen_threshold(img, 1, 1);
+    let threshold = gen_threshold(img, 1, 2);
     let piecewise = gen_piecewise_lin(img, 50, 20, 200, 240);
     let equalized = gen_equalize_hist(img);
 
