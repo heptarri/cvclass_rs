@@ -1,6 +1,4 @@
-mod chapt2;
-mod chapt3;
-mod chapt4;
+mod chapts;
 mod common;
 
 use std::env;
@@ -35,13 +33,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Ok(());
     }
 
-    chapt2::run_chapt2(&rgb_image, &output_root)?;
+    chapts::chapt2::run_chapt2(&rgb_image, &output_root)?;
     println!("[CHPT] Chapt 2 Generated!");
 
-    chapt3::run_chapt3(&rgb_image, &output_root)?;
+    chapts::chapt3::run_chapt3(&rgb_image, &output_root)?;
     println!("[CHPT] Chapt 3 Generated!");
 
-    chapt4::run_chapt4(&rgb_image, &output_root)?;
+    chapts::chapt4::run_chapt4(&rgb_image, &output_root)?;
     println!("[CHPT] Chapt 4 Generated!");
 
     let gray = common::to_grayscale(&rgb_image);
@@ -65,7 +63,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     )?;
     writeln!(report, "Is grayscale: {}", common::is_grayscale(&rgb_image))?;
     writeln!(report, "Is binary: {}", common::is_binary(&gray))?;
-    writeln!(report, "Otsu threshold: {}", chapt3::otsu_threshold(&gray))?;
+    writeln!(
+        report,
+        "Otsu threshold: {}",
+        chapts::chapt3::otsu_threshold(&gray)
+    )?;
 
     println!("处理完成，结果保存到 {}", output_root.display());
     Ok(())
