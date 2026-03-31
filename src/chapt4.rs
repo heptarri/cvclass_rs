@@ -52,6 +52,11 @@ pub fn img_transpose(src: &RgbImage) -> RgbImage {
 
 /// 使用最近邻插值缩放图像。
 pub fn img_resize(src: &RgbImage, w: u32, h: u32) -> RgbImage {
+    img_resize_nearest(src, w, h)
+}
+
+/// 最近邻插值缩放
+pub fn img_resize_nearest(src: &RgbImage, w: u32, h: u32) -> RgbImage {
     let mut dst = RgbImage::new(w, h);
     for y in 0..h {
         for x in 0..w {
@@ -66,12 +71,8 @@ pub fn img_resize(src: &RgbImage, w: u32, h: u32) -> RgbImage {
     dst
 }
 
-/// 最近邻插值缩放
-pub fn img_resize_nearest(src: &RgbImage, w: u32, h: u32) -> RgbImage {
-    img_resize(src, w, h)
-}
-
 /// 双线性插值缩放
+#[allow(unused)]
 pub fn img_resize_bilinear(src: &RgbImage, w: u32, h: u32) -> RgbImage {
     let mut dst = RgbImage::new(w, h);
     let sw = src.width() as f32;
@@ -126,6 +127,7 @@ fn cubic_weight(t: f32) -> f32 {
 }
 
 /// 三次插值缩放（Catmull-Rom）
+#[allow(unused)]
 pub fn img_resize_cubic(src: &RgbImage, w: u32, h: u32) -> RgbImage {
     let mut dst = RgbImage::new(w, h);
     let sw = src.width() as f32;
@@ -171,6 +173,7 @@ pub fn img_rotate(src: &RgbImage, angle_deg: f32) -> RgbImage {
 }
 
 /// 最近邻插值旋转
+#[allow(unused)]
 pub fn img_rotate_nearest(src: &RgbImage, angle_deg: f32) -> RgbImage {
     let angle = angle_deg.to_radians();
     let cos_a = angle.cos();
@@ -202,6 +205,7 @@ pub fn img_rotate_nearest(src: &RgbImage, angle_deg: f32) -> RgbImage {
 }
 
 /// 双线性插值旋转
+#[allow(unused)]
 pub fn img_rotate_bilinear(src: &RgbImage, angle_deg: f32) -> RgbImage {
     let angle = angle_deg.to_radians();
     let cos_a = angle.cos();
