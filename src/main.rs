@@ -33,14 +33,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Ok(());
     }
 
-    chapts::chapt2::run_chapt2(&rgb_image, &output_root)?;
-    println!("[CHPT] Chapt 2 Generated!");
+    // chapts::chapt2::run_chapt2(&rgb_image, &output_root)?;
+    // println!("[CHPT] Chapt 2 Generated!");
 
-    chapts::chapt3::run_chapt3(&rgb_image, &output_root)?;
-    println!("[CHPT] Chapt 3 Generated!");
+    // chapts::chapt3::run_chapt3(&rgb_image, &output_root)?;
+    // println!("[CHPT] Chapt 3 Generated!");
 
-    chapts::chapt4::run_chapt4(&rgb_image, &output_root)?;
-    println!("[CHPT] Chapt 4 Generated!");
+    // chapts::chapt4::run_chapt4(&rgb_image, &output_root)?;
+    // println!("[CHPT] Chapt 4 Generated!");
+
+    chapts::chapt5::run_chapt5(&rgb_image, &output_root)?;
+    println!("[CHPT] Chapt 5 Generated!");
 
     let gray = common::to_grayscale(&rgb_image);
 
