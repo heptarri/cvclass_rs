@@ -75,6 +75,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         chapts::chapt3::otsu_threshold(&gray)
     )?;
 
-    println!("处理完成，结果保存到 {}", output_root.display());
+    println!("Done. Files saved to {}.", output_root.display());
     Ok(())
 }
